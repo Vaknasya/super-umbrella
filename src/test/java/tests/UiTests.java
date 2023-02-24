@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.testng.Tag;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
+@Tag("UI")
 public class UiTests {
 
     ArrayList<String> divideExpressionsList = new ArrayList<String>() {
@@ -42,7 +44,7 @@ public class UiTests {
 
     private void assertAnswer(String value) {
         inputField.sendKeys(value + "=" + Keys.ENTER);
-        Selenide.screenshot(String.valueOf(System.currentTimeMillis()));
+       // Selenide.screenshot(String.valueOf(System.currentTimeMillis()));
         Assert.assertEquals(expectedResult, resultField.getText());
     }
 
