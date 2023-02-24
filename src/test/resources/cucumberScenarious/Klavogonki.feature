@@ -1,7 +1,8 @@
 Feature: Bot for the Klavogonki website
 
   Background: I am on the home page of the website "https://klavogonki.ru/"
-    Given Open the desired page by pressing the button "string"
+    Given Open the desired page "string"
+    And Pressing the quickstart button
 
   Scenario: The bot starts the game and enters the words itself
     When Starting the game

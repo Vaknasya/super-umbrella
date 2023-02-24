@@ -29,14 +29,18 @@ public class KlavogonkiTest {
         return focusedElement.getText().replaceAll("c", "с").replaceAll("o", "о");
     }
 
-    @Given("Open the desired page by pressing the button {string}")
-    public void open_the_desired_page_by_pressing_the_button(String url) {
+    @Given("Open the desired page {string}")
+    public void openTheDesiredPage(String url) {
         Selenide.open(url);
+    }
+
+    @And("Pressing the quickstart button")
+    public void pressingTheButton() {
+        quickStartIcon.click();
     }
 
     @When("Starting the game")
     public void starting_the_game() {
-        quickStartIcon.click();
         closeStartWindow.click();
         if (startGameButton.isDisplayed()) {
             startGameButton.click();
@@ -70,5 +74,4 @@ public class KlavogonkiTest {
         int resultCount = Integer.parseInt(raceResult);
         Assert.assertTrue("Relevant counit is: " + valueCount, resultCount > valueCount);
     }
-
 }
