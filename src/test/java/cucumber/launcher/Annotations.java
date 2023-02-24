@@ -1,4 +1,4 @@
-package Cucumber.Launcher;
+package cucumber.launcher;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;

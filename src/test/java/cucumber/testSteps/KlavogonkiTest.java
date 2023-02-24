@@ -1,8 +1,7 @@
-package Cucumber.TestSteps;
+package cucumber.testSteps;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +19,8 @@ public class KlavogonkiTest {
     private final SelenideElement focusedElement = $("#typefocus");
     private final SelenideElement inputTextField = $("#inputtext");
     private final SelenideElement afterFocusedElement = $("#afterfocus");
-    private final SelenideElement countResult = $x("//div[contains((@class), \"you\")]//div[@id=\"stats0\"]//div[2]/span/span");
+    private final SelenideElement countResult =
+            $x("//div[contains((@class), \"you\")]//div[@id=\"stats0\"]//div[2]/span/span");
 
     /**
      * Site has anti-bot protection and replaces Russian characters with English when typing
