@@ -2,6 +2,7 @@ package Cucumber.TestSteps;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,6 +22,9 @@ public class KlavogonkiTest {
     private final SelenideElement afterFocusedElement = $("#afterfocus");
     private final SelenideElement countResult = $x("//div[contains((@class), \"you\")]//div[@id=\"stats0\"]//div[2]/span/span");
 
+    /**
+     * Site has anti-bot protection and replaces Russian characters with English when typing
+     */
     private String getFocusedWord() {
         return focusedElement.getText().replaceAll("c", "с").replaceAll("o", "о");
     }
@@ -28,11 +32,11 @@ public class KlavogonkiTest {
     @Given("Open the desired page by pressing the button {string}")
     public void open_the_desired_page_by_pressing_the_button(String url) {
         Selenide.open(url);
-        quickStartIcon.click();
     }
 
     @When("Starting the game")
     public void starting_the_game() {
+        quickStartIcon.click();
         closeStartWindow.click();
         if (startGameButton.isDisplayed()) {
             startGameButton.click();
@@ -65,7 +69,6 @@ public class KlavogonkiTest {
         String raceResult = countResult.getText();
         int resultCount = Integer.parseInt(raceResult);
         Assert.assertTrue("Relevant counit is: " + valueCount, resultCount > valueCount);
-
     }
 
 }
