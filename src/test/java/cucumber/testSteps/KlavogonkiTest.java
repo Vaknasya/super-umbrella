@@ -72,6 +72,6 @@ public class KlavogonkiTest {
     public void fix_that_the_game_is_over_and_there_are_more_characters_per_minute_than(Integer valueCount) {
         String raceResult = countResult.getText();
         int resultCount = Integer.parseInt(raceResult);
-        Assert.assertTrue("Relevant counit is: " + valueCount, resultCount > valueCount);
+        Assert.assertTrue("Relevant count is: " + valueCount, resultCount > valueCount);
     }
 }
