@@ -9,14 +9,20 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class KlavogonkiPage extends BasePage {
 
-    public KlavogonkiPage(String pageUrl) {
-        super(pageUrl);
+    public KlavogonkiPage() {
+        super();
     }
 
-    private final SelenideElement quickStartIcon = $(".quickstart");
+    protected final SelenideElement quickStartIcon = $(".quickstart");
 
     public void clickQuickStartIcon() {
         quickStartIcon.click();
+    }
+
+    String quickStartIconCss = ".quickstart";
+
+    public void clickStartIcon(){
+        findByCss(quickStartIconCss).click();
     }
 
     private final SelenideElement contextStartWindow = $("input[onclick*=\"howtoplay\"]");

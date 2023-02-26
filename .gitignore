@@ -27,4 +27,4 @@ buildNumber.properties
 .mvn/timing.properties
 
 /allure-results
-
+/build

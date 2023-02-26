@@ -10,7 +10,7 @@ import org.openqa.selenium.Keys;
 
 public class KlavogonkiTest {
 
-    KlavogonkiPage klavogonkiPage = new KlavogonkiPage("");
+    KlavogonkiPage klavogonkiPage = new KlavogonkiPage();
 
     @Given("Open the desired page {string}")
     public void openPage(String url) {
