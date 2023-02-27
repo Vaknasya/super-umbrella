@@ -11,16 +11,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BasePage {
 
-    protected String pageUrl;
-
     public BasePage() {
         Configuration.browser = "Chrome";
-        //  Configuration.browserSize = siz
-        //Configuration.headless = true;
+        Configuration.headless = false;
     }
 
     public void goToPage(String url) {
-        Selenide.open(pageUrl);
+        Selenide.open(url);
     }
 
     public SelenideElement findById(String id) {
