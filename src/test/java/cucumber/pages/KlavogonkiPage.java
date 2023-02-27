@@ -13,60 +13,56 @@ public class KlavogonkiPage extends BasePage {
         super();
     }
 
-    protected final SelenideElement quickStartIcon = $(".quickstart");
+    private final SelenideElement quickStartIcon = $(".quickstart");
 
     public void clickQuickStartIcon() {
-        quickStartIcon.click();
-    }
-
-    String quickStartIconCss = ".quickstart";
-
-    public void clickStartIcon(){
-        findByCss(quickStartIconCss).click();
+        clickElement(quickStartIcon);
     }
 
     private final SelenideElement contextStartWindow = $("input[onclick*=\"howtoplay\"]");
 
     public void clickContextStartWindow() {
-        contextStartWindow.click();
+        clickElement(contextStartWindow);
     }
 
     private final SelenideElement startGameButton = $("a[id*=\"host_start\"]");
+
     public void clickStartGameButton() {
-        startGameButton.click();
+        clickElement(startGameButton);
     }
+
     public Boolean isStartGameButtonVisible() {
         return startGameButton.isDisplayed();
     }
 
     private final SelenideElement focusedElement = $("#typefocus");
+
     public void clickFocusedElement() {
-        focusedElement.click();
+        clickElement(focusedElement);
     }
 
     /**
      * Site has anti-bot protection and replaces Russian characters with English when typing
      */
     public String getFocusedWord() {
-        return focusedElement.getText().replaceAll("c", "с").replaceAll("o", "о");
+        return getText(focusedElement).replaceAll("c", "с").replaceAll("o", "о");
     }
 
     private final SelenideElement inputTextField = $("#inputtext");
 
     public void sendTextToInputField(String str) {
-        inputTextField.sendKeys(str);
+        setText(inputTextField, str);
     }
 
     public void sendKeysToInputField(Keys str) {
-        inputTextField.sendKeys(str);
+        setText(inputTextField, String.valueOf(str));
     }
 
     private final SelenideElement afterFocusedElement = $("#afterfocus");
 
     public String getAfterFocusedElementText() {
-        return afterFocusedElement.getText();
+       return getText(afterFocusedElement);
     }
-
 
     private final SelenideElement afterGameAuthorBook = $(".imobilco-cover");
 
@@ -78,7 +74,7 @@ public class KlavogonkiPage extends BasePage {
             $x("//div[contains((@class), \"you\")]//div[@id=\"stats0\"]//div[2]/span/span");
 
     public int getCountInt() {
-        return Integer.parseInt(countResult.getText());
+        return Integer.parseInt(getText(countResult));
     }
 
 

@@ -5,9 +5,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public abstract class BasePage {
 
@@ -15,7 +15,7 @@ public abstract class BasePage {
 
     public BasePage() {
         Configuration.browser = "Chrome";
-        // Configuration.browserSize = true;
+        //  Configuration.browserSize = siz
         //Configuration.headless = true;
     }
 
@@ -44,7 +44,7 @@ public abstract class BasePage {
     }
 
     public void sendKeyboardKey(SelenideElement element) {
-        element.sendKeys();
+        element.sendKeys(Keys.valueOf(String.valueOf(element)));
     }
 
     public void setText(SelenideElement element, String text) {
